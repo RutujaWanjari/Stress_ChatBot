@@ -1,14 +1,13 @@
-import nltk
-from nltk.corpus import sentiwordnet as swn
-nltk.download('sentiwordnet')
+import urllib
+from urllib import parse, request
+
 
 try:
-    print("Please wait for 5 mins till I process your query.")
-    list(swn.senti_synsets('slow'))
-    happy = swn.senti_synsets('happy', 'a')
-    happy0 = list(happy)[0]
-    print(happy0.pos_score())
-    print(happy0.neg_score())
-    print(happy0.obj_score())
+    text = urllib.parse.urlencode({'text': 'I am good'})
+    text = text.encode('UTF-8')
+    url = urllib.request.Request('http://text-processing.com/api/sentiment/', text)
+    url.add_header("Content-Type", "application/x-www-form-urlencoded")
+    responseData = urllib.request.urlopen(url).read().decode('utf8', 'ignore')
+    print(responseData)
 except Exception as e:
     print(str(e))
