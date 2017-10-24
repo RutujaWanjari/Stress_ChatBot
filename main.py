@@ -1,13 +1,14 @@
-import urllib
-from urllib import parse, request
+import os
+from project import app
+import time
 
 
-try:
-    text = urllib.parse.urlencode({'text': 'I am good'})
-    text = text.encode('UTF-8')
-    url = urllib.request.Request('http://text-processing.com/api/sentiment/', text)
-    url.add_header("Content-Type", "application/x-www-form-urlencoded")
-    responseData = urllib.request.urlopen(url).read().decode('utf8', 'ignore')
-    print(responseData)
-except Exception as e:
-    print(str(e))
+# if __name__ == '__main__':
+#     port = int(os.environ.get("PORT", 33507))
+#     host = 'http://instarem-bot.herokuapp.com/'
+#     app.run(debug=True, port=port, host= host)
+
+
+if __name__ == '__main__':
+   port = int(os.environ.get("PORT", 8081))
+   app.run(debug=True, port=port, host='0.0.0.0')

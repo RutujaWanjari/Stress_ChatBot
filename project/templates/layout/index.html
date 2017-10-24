@@ -1,0 +1,47 @@
+{% extends "layout/layout.html" %}
+  {% block body %}
+
+  <ul id="iframe" class="media-list messages">
+    <li id="bot_response" class="message left appeared">
+      <div class="avatar">
+        <img width="36px" src="/static/images/bot.png">
+      </div>
+      <div class="text_wrapper">
+        <div class="text-header no-ul">
+          <div class="text">
+            Hey, I am here to talk about your feelings!
+          </div>
+        </div>
+      </div>
+    </li>
+      <li  class="message right appeared">
+            <div class="avatar">
+                <img width="36px" src="/static/images/user.png">
+            </div>
+            <div class="text_wrapper">
+                <div class="text-header no-ul">
+                <div class="text">
+                    Hey, I am here to talk about your feelings!
+                </div>
+                </div>
+            </div>
+        </li>
+  </ul>
+
+  <div id="result">
+  </div>
+
+  <div class="bottom-send-input">
+    <form method="post" id="chatbot-form" >
+      <div class="input-group">
+        <input id="message_input" type="text" name="message_input" class="form-control input-sm bottom-input" placeholder="Type your message here...">
+        <span class="input-group-btn" id="basic-addon2">
+          <button class="btn btn-sm send-button-wrapper" type="submit" value="Submit">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div>
+    </form>
+  </div>
+
+  {% endblock %}
